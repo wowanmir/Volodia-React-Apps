@@ -2,6 +2,14 @@ import { useState } from 'react';
 import './App.css';
 import Counter from './Components/Counter';
 import Button from './Components/Button';
+
+const texts = [
+  'Click',
+  'Click',
+  'Click pls',
+  'Click c\'mon',
+  'cliiick',
+  'sosiska'];
 function App() {
   const [count, setCount] = useState(0);
   const incrementCount = () => {
@@ -9,11 +17,9 @@ function App() {
   }
   return (
     <div className="App">
-    <Counter count = {count}/>
-    <Button onClick = {incrementCount}/>
-    <Button onClick = {incrementCount}/>
-    <Button onClick = {incrementCount}/>
-    <Button onClick = {incrementCount}/>
+    <Counter count = {count} />
+    {texts.map((text, index) => {
+      return <Button key={index} text={text} onClick={incrementCount} />})}
     </div>
   );
 }
